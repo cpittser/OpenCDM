@@ -17,6 +17,8 @@ app.use(
   })
 );
 
+app.use(express.static("public"));
+
 app.get("/v1/heartbeat", (req: Request, res: Response, next: NextFunction) => {
   res.status(200).json({
     success: true,

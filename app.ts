@@ -17,15 +17,12 @@ app.use(
   })
 );
 
-app.get(
-  "/api/v1/heartbeat",
-  (req: Request, res: Response, next: NextFunction) => {
-    res.status(200).json({
-      success: true,
-      message: "API is working",
-    });
-  }
-);
+app.get("/v1/heartbeat", (req: Request, res: Response, next: NextFunction) => {
+  res.status(200).json({
+    success: true,
+    message: "API is working",
+  });
+});
 
 app.use("/", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.get("docs.json", (req: Request, res: Response) => {
